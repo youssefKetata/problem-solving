@@ -1,20 +1,19 @@
 function numberOfBeams(bank: string[]): number {
-  for (let i = 0; i < bank.length; i++) {
-    for (let j = i + 1; j < bank.length; j++) {
-      let row1 = bank[i];
-      let row2 = bank[j];
-      let count1 = 0;
-      let count2 = 0;
-      for (let k = 0; k < row1.length; k++) {
-        if (row1[k] === '1') count1++;
-        if (row2[k] === '1') count2++;
-      }
-      if (count1 > 0 && count2 > 0) {
-        return count1 * count2;
-      }
-    }
+  const counts = bank.map((row) => {
+    const matches = row.match(/1/g);
+    return matches ? matches.length : 0;
+  });
+
+  let total = 0;
+  let prev = 0;
+  for (const count of counts) {
+    if (count === 0) continue;
+    if (prev > 0) total += prev * count;
+    prev = count;
   }
-  return 0;
+
+  return total;
 }
-let bank = ['011001', '000000', '010100', '001000'];
-numberOfBeams(bank);
+
+let bank = ['000', '111', '000'];
+console.log(numberOfBeams(bank));
