@@ -44,9 +44,9 @@ function listToArray(head: ListNode | null): number[] {
   return arr;
 }
 
-const nums = [1, 2, 3];
+const nums3217 = [1, 2, 3];
 const headArr = [1, 2, 3, 4, 5];
 const head = arrayToList(headArr);
 
-const result = modifiedList(nums, head);
+const result = modifiedList(nums3217, head);
 console.log(listToArray(result));
