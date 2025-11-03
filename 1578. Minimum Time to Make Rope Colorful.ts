@@ -30,7 +30,41 @@ function minCost(colors: string, neededTime: number[]): number {
   return sum;
 }
 
-const colors = 'aaaaaaaaaaaaaa';
-const neededTime = [1, 3, 6, 5, 4, 5, 4, 4, 2, 8, 3, 10, 6, 6];
+function minCost2(colors: string, neededTime: number[]): number {
+  let total = 0;
+  let maxTime = neededTime[0];
+  for (let i = 1; i < colors.length; i++) {
+    if (colors[i] === colors[i - 1]) {
+      // Add the smaller time to total, keep the max for the group
+      total += Math.min(maxTime, neededTime[i]);
+      maxTime = Math.max(maxTime, neededTime[i]);
+    } else {
+      maxTime = neededTime[i];
+    }
+  }
+  return total;
+}
+
+function minCost3(colors: string, neededTime: number[]): number {
+  let total = 0;
+
+  for (let i = 0; i < colors.length - 1; i++) {
+    if (colors[i] === colors[i + 1]) {
+      if (neededTime[i] < neededTime[i + 1]) {
+        total += neededTime[i];
+      } else {
+        total += neededTime[i + 1];
+        neededTime[i + 1] = neededTime[i];
+      }
+    }
+  }
+
+  return total;
+}
+
+const colors = 'aaabbbabbbb';
+const neededTime = [3, 5, 10, 7, 5, 3, 5, 5, 4, 8, 1];
 
 console.log(minCost(colors, neededTime));
+console.log(minCost2(colors, neededTime));
+console.log(minCost3(colors, neededTime));
