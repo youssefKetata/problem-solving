@@ -51,3 +51,20 @@ let strs = ['10', '0001', '111001', '1', '0'],
   m = 5,
   n = 3;
 console.log(findMaxForm(strs, m, n));
+
+// second faster version
+function findMaxForm2(strs: string[], m: number, n: number): number {
+  const dp = Array.from({ length: m + 1 }, () => Array(n + 1).fill(0));
+
+  for (const s of strs) {
+    const zero = s.split('0').length - 1;
+    const one = s.length - zero;
+    for (let i = m; i >= zero; i--) {
+      for (let j = n; j >= one; j--) {
+        dp[i][j] = Math.max(dp[i][j], dp[i - zero][j - one] + 1);
+      }
+    }
+  }
+
+  return dp[m][n];
+}
