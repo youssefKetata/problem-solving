@@ -32,7 +32,7 @@ export function findMaxForm(strs: string[], m: number, n: number): number {
   return helper(0, m, n);
 }
 
-function countOnes(s) {
+function countOnes(s: string) {
   let count = 0;
   for (const ch of s) {
     if (ch === '1') count++;
@@ -40,7 +40,7 @@ function countOnes(s) {
   return count;
 }
 
-function countZeros(s) {
+function countZeros(s: string) {
   let count = 0;
   for (const ch of s) {
     if (ch === '0') count++;
