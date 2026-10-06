@@ -1,0 +1,113 @@
+<html>
+  <body>
+    <div class="text-center" style="margin-top: 30px">
+      <div class="offset-lg-2 col-lg-8">
+        <div class="card">
+          <div class="card-body">
+            <script type="text/javascript">
+              $(document).ready(function () {
+                $('#submit').on('click', function (e) {
+                  e.preventDefault();
+                  if (window.location.search.indexOf('challenge') != -1) {
+                    debugger;
+                  }
+                  pwd = $('#pwd').val(); // ''
+
+                  ts = $('#pwd').data('ts') + ''; // '83306794236525115047370'
+                  stmnt = getBiskuit('X-Odoo'); // '"!Odoo - All your applications in one single solution"'
+                  multi = true;
+                  $(ts.substr(0, 5).split('')).each(function (i, j) {
+                    multi *= stmnt[parseInt(j) + 1].charCodeAt(0);
+                  });
+
+                  if (
+                    parseInt(
+                      pwd.slice(-(--[, , , undefined].join().length))[0]
+                    ) *
+                      parseInt(
+                        pwd.slice(0 - -(-1) - -(-(-(-1))) - -(-(-0)))[1]
+                      ) *
+                      stmnt.split('All').length ==
+                    ts.slice(
+                      eval(
+                        '' +
+                          '' +
+                          '' +
+                          ƒ(1 < 0) +
+                          '' +
+                          '-' +
+                          '' +
+                          '' +
+                          ƒ(0 < 1) +
+                          '-' +
+                          ƒ(1 > 0)
+                      )
+                    )
+                  ) {
+                    $.ajax('./70/' + pwd, {
+                      success: function (o) {
+                        0 ===
+                          pwd.lastIndexOf(
+                            multi.toString().substr(1, 4) +
+                              stmnt.substring(2, 6),
+                            0
+                          ) &&
+                          $.post('submit', {
+                            pwd: o,
+                            csrf_token:
+                              '398abb6ab5c6dd653afa40d4d6006ea2d2887b51o1795895504',
+                          }).always(function () {
+                            window.location.href = '/jobs/challenge/next';
+                          });
+                      },
+                      error: function (o) {
+                        console.error('To be or not to be... ');
+                      },
+                    });
+                  }
+                });
+              });
+            </script>
+            <form method="POST" action="/jobs/challenge/submit" role="form">
+              <input
+                class="d-none"
+                name="csrf_token"
+                value="398abb6ab5c6dd653afa40d4d6006ea2d2887b51o1795895504"
+              />
+              <div class="form-group row">
+                <label
+                  for="password"
+                  class="col-md-2 offset-md-2 col-form-label"
+                  >Password</label
+                >
+                <div class="col-md-6">
+                  <input
+                    type="password"
+                    required="required"
+                    class="form-control"
+                    name="pwd"
+                    id="pwd"
+                    placeholder=""
+                    data-ts="83306794236525115047370"
+                  />
+                </div>
+              </div>
+              <div class="form-group">
+                <div>
+                  <button
+                    id="submit"
+                    type="submit"
+                    name="signup"
+                    class="btn btn-primary"
+                  >
+                    Check Answer
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
